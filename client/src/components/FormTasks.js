@@ -11,9 +11,9 @@ const FormTasks = () => {
     taskUrgencyOptions,
     handleChange,
     isLoading,
-    clearValues,
     createTask,
     editTask,
+    getTasks,
   } = useAppContext();
 
   const handleSubmit = (e) => {
@@ -30,6 +30,7 @@ const FormTasks = () => {
     }
 
     createTask();
+    getTasks();
   };
 
   const handleInput = (e) => {

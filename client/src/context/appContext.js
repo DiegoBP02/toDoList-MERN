@@ -122,6 +122,7 @@ const AppProvider = ({ children }) => {
         urgency: taskUrgency,
       });
       dispatch({ type: CREATE_TASK_SUCCESS });
+      dispatch({ type: CLEAR_VALUES });
     } catch (error) {
       if (error.response === 401) return;
       dispatch({

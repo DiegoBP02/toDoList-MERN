@@ -55,6 +55,11 @@ const Wrapper = styled.main`
     letter-spacing: 1px;
     font-weight: 600;
   }
+  .tasks p:nth-child(2),
+  p:nth-child(3),
+  p:nth-child(4) {
+    text-align: center;
+  }
   .single-job {
     background-color: white;
     border-radius: var(--borderRadius);
@@ -110,6 +115,7 @@ const Wrapper = styled.main`
     gap: 0px 0.5rem;
     height: 25px;
     margin-top: 0.25rem;
+    text-align: center;
   }
   @media (min-width: 768px) {
     .form {
