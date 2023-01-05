@@ -9,6 +9,8 @@ const Navbar = () => {
   const { user, logoutUser } = useAppContext();
   const [showLogout, setShowLogout] = useState(false);
 
+  const firstName = user.name.split(" ")[0];
+
   return (
     <Wrapper>
       <header className="header">
@@ -16,7 +18,7 @@ const Navbar = () => {
         <div className="btns">
           <button className="btn" onClick={() => setShowLogout(!showLogout)}>
             <FaUserCircle />
-            {user.name}
+            {firstName}
             <RiArrowDownSFill />
           </button>
           <button

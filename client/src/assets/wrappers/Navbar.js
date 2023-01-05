@@ -35,6 +35,11 @@ const Wrapper = styled.nav`
   .logo {
     height: 3.5rem;
   }
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 2rem;
+    }
+  }
 `;
 
 export default Wrapper;
