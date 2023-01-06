@@ -20,6 +20,7 @@ import {
   EDIT_TASK_ERROR,
   GET_CURRENT_USER_BEGIN,
   GET_CURRENT_USER_SUCCESS,
+  CHANGE_PAGE,
 } from "./actions";
 import reducer from "./reducer";
 import axios from "axios";
@@ -136,11 +137,12 @@ const AppProvider = ({ children }) => {
   const getTasks = async () => {
     dispatch({ type: GET_TASKS_BEGIN });
     try {
-      let url = `/task`;
+      const { page } = state;
+
+      let url = `/task?page=${page}`;
 
       const { data } = await authFetch(url);
       const { tasks, totalTasks, numOfPages } = data;
-      console.log(data);
       dispatch({
         type: GET_TASKS_SUCCESS,
         payload: {
@@ -149,7 +151,6 @@ const AppProvider = ({ children }) => {
           numOfPages,
         },
       });
-      console.log("get tasks success");
     } catch (error) {
       console.log(error.response);
       logoutUser();
@@ -199,11 +200,14 @@ const AppProvider = ({ children }) => {
       const { user } = data;
 
       dispatch({ type: GET_CURRENT_USER_SUCCESS, payload: { user } });
-      console.log("get  current user");
     } catch (error) {
       if (error.response.status === 401) return;
       logoutUser();
     }
+  };
+
+  const changePage = (page) => {
+    dispatch({ type: CHANGE_PAGE, payload: { page } });
   };
 
   useEffect(() => {
@@ -225,6 +229,7 @@ const AppProvider = ({ children }) => {
         setEditTask,
         editTask,
         deleteTask,
+        changePage,
       }}
     >
       {children}

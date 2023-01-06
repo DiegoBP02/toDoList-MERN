@@ -15,10 +15,20 @@ const createTask = async (req, res) => {
 };
 
 const getAllTasks = async (req, res) => {
-  const tasks = await Task.find({ createdBy: req.user.userId });
-  res
-    .status(StatusCodes.OK)
-    .json({ tasks, totalTasks: tasks.length, numOfPages: 1 });
+  let result = Task.find({ createdBy: req.user.userId });
+
+  const page = Number(req.query.page) || 1;
+  const limit = Number(req.query.limit) || 10;
+  const skip = (page - 1) * limit;
+
+  result = result.skip(skip).limit(limit);
+
+  const tasks = await result;
+
+  const totalTasks = await Task.countDocuments({ createdBy: req.user.userId });
+  const numOfPages = Math.ceil(totalTasks / limit);
+
+  res.status(StatusCodes.OK).json({ tasks, totalTasks, numOfPages });
 };
 
 const updateTask = async (req, res) => {

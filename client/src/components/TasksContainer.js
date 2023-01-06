@@ -1,13 +1,13 @@
 import { useEffect } from "react";
-import { Loading, SingleTask } from ".";
+import { Loading, PageBtnContainer, SingleTask } from ".";
 import { useAppContext } from "../context/appContext";
 
 const TasksContainer = () => {
-  const { isLoading, getTasks, tasks } = useAppContext();
+  const { isLoading, getTasks, tasks, page, numOfPages } = useAppContext();
 
   useEffect(() => {
     getTasks();
-  }, []);
+  }, [page]);
 
   const categories = ["Task", "Date", "Urgency", "Action"];
 
@@ -31,6 +31,7 @@ const TasksContainer = () => {
           return <SingleTask key={task._id} {...task} />;
         })}
       </section>
+      {numOfPages > 1 && <PageBtnContainer />}
     </>
   );
 };

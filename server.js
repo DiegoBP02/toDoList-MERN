@@ -11,6 +11,12 @@ import mongoose from "mongoose";
 mongoose.set("strictQuery", "true "); // suppress warning message
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import helmet from "helmet";
+import xss from "xss-clean";
+import mongoSanitize from "express-mongo-sanitize";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+import path from "path";
 
 // routes
 import authRouter from "./routes/authRoutes.js";
@@ -20,15 +26,23 @@ if (process.env.NODE_ENV !== "production") {
   app.use(morgan("dev"));
 }
 
-app.get("/", (req, res) => {
-  res.send("Welcome!");
-});
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+app.use(express.static(path.resolve(__dirname, "./client/build")));
 
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
+app.use(helmet());
+app.use(xss());
+app.use(mongoSanitize());
+
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/task", taskRouter);
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+});
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);

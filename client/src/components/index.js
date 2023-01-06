@@ -7,6 +7,7 @@ import TasksContainer from "./TasksContainer";
 import FormRowSelect from "./FormRowSelect";
 import Loading from "./Loading";
 import SingleTask from "./SingleTask";
+import PageBtnContainer from "./PageBtnContainer";
 
 export {
   Logo,
@@ -18,4 +19,5 @@ export {
   FormRowSelect,
   Loading,
   SingleTask,
+  PageBtnContainer,
 };

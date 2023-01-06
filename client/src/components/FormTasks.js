@@ -56,7 +56,7 @@ const FormTasks = () => {
           noLabel
         />
         <button className="btn btn-hero btn-add" type="submit">
-          {isLoading ? "Adding new task..." : isEditing ? "Edit" : "Add task"}
+          {isLoading ? "Adding task..." : isEditing ? "Edit" : "Add task"}
         </button>
       </form>
     </section>
