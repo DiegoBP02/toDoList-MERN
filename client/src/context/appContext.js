@@ -1,4 +1,4 @@
-import React, { useState, useReducer, useContext, useEffect } from "react";
+import React, { useReducer, useContext, useEffect } from "react";
 import {
   DISPLAY_ALERT,
   CLEAR_ALERT,
@@ -25,7 +25,7 @@ import {
 import reducer from "./reducer";
 import axios from "axios";
 
-export const initialState = {
+const initialState = {
   isLoading: false,
   showAlert: false,
   alertText: "",
@@ -61,6 +61,7 @@ const AppProvider = ({ children }) => {
     },
     (error) => {
       if (error.response.status === 401) {
+        // console.log("Unauthorized error!");
         logoutUser();
       }
       return Promise.reject(error);
@@ -101,7 +102,7 @@ const AppProvider = ({ children }) => {
   };
 
   const logoutUser = async () => {
-    await authFetch.get("/auth/logout");
+    await authFetch("/auth/logout");
     dispatch({ type: LOGOUT_USER });
   };
 
@@ -124,6 +125,7 @@ const AppProvider = ({ children }) => {
       });
       dispatch({ type: CREATE_TASK_SUCCESS });
       dispatch({ type: CLEAR_VALUES });
+      getTasks();
     } catch (error) {
       if (error.response === 401) return;
       dispatch({
@@ -237,8 +239,8 @@ const AppProvider = ({ children }) => {
   );
 };
 
-export const useAppContext = () => {
+const useAppContext = () => {
   return useContext(AppContext);
 };
 
-export { AppProvider };
+export { AppProvider, initialState, useAppContext };

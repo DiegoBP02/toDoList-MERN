@@ -1,13 +1,8 @@
-import { useEffect } from "react";
 import { Loading, PageBtnContainer, SingleTask } from ".";
 import { useAppContext } from "../context/appContext";
 
 const TasksContainer = () => {
-  const { isLoading, getTasks, tasks, page, numOfPages } = useAppContext();
-
-  useEffect(() => {
-    getTasks();
-  }, [page]);
+  const { isLoading, tasks, numOfPages } = useAppContext();
 
   const categories = ["Task", "Date", "Urgency", "Action"];
 

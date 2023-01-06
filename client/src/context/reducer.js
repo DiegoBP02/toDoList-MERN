@@ -54,13 +54,14 @@ const reducer = (state, action) => {
   if (action.type === SETUP_USER_ERROR) {
     return {
       ...state,
+      isLoading: false,
       showAlert: true,
       alertType: "danger",
       alertText: action.payload.msg,
     };
   }
   if (action.type === LOGOUT_USER) {
-    return { initialState, userLoading: false };
+    return { ...initialState, userLoading: false };
   }
   if (action.type === HANDLE_CHANGE) {
     return {

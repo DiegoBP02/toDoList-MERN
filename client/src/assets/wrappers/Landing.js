@@ -17,6 +17,7 @@ const Wrapper = styled.main`
   }
   h1 {
     font-weight: bold;
+    color: var(--primary);
   }
   .nav img {
     height: 3.5rem;
