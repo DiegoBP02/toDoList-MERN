@@ -60,9 +60,9 @@ function Register() {
   }, [user, navigate]);
 
   return (
-    <Wrapper className="full-page">
+    <Wrapper className="full-page ">
       <form className="form" onSubmit={onSubmit}>
-        <Logo center />
+        <Logo center widthFix />
         <h3>{values.isMember ? "Login" : "Register"}</h3>
         {showAlert && <Alert />}
         {/* name field */}

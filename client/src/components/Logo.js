@@ -1,12 +1,15 @@
 import logo from "../assets/images/logo.png";
 
-const Logo = ({ center, noMargin }) => {
+const Logo = ({ center, noMargin, widthFix }) => {
   let className = "nav";
   if (center) {
     className += " center";
   }
   if (noMargin) {
     className += " noMargin";
+  }
+  if (widthFix) {
+    className += " widthFix";
   }
   return (
     <nav className={className}>
