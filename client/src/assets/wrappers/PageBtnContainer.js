@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 const Wrapper = styled.section`
   height: 6rem;
-  margin-top: 2rem;
   display: flex;
   align-items: center;
   justify-content: end;
   flex-wrap: wrap;
   gap: 1rem;
+  flex-wrap: nowrap;
   .btn-container {
     background: var(--primary-100);
     border-radius: var(--borderRadius);
@@ -50,6 +50,12 @@ const Wrapper = styled.section`
   .next-btn:hover {
     background: var(--primary-500);
     color: var(--white);
+  }
+  @media (max-width: 369px) {
+    .pageBtn {
+      width: 40px;
+      height: 30px;
+    }
   }
 `;
 export default Wrapper;

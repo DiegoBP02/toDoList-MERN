@@ -278,6 +278,7 @@ ul {
 /* logo */
 .nav {
   max-width: var(--max-width);
+  width: var(--fluid-width);
   height: 6rem;
   display: flex;
   align-items: center;

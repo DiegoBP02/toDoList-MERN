@@ -37,7 +37,7 @@ const Wrapper = styled.nav`
   }
   @media (max-width: 768px) {
     h2 {
-      font-size: 2rem;
+      font-size: 1.75rem;
     }
   }
 `;

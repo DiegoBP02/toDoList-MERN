@@ -10,7 +10,7 @@ const Landing = () => {
     <>
       {user && <Navigate to="/" />}
       <Wrapper>
-        <Logo className="logoRegister" />
+        <Logo />
         <div className="container page">
           <div className="info">
             <h1>Todo List</h1>
