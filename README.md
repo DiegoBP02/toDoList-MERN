@@ -1,6 +1,6 @@
 Projeto que permite o usuário administrar a sua lista de tarefas, permitindo-o adicionar tarefas, editá-las e removê-las e definir o seu nível de urgência. O projeto também conta com um sistema de login/registro utilizando cookies.
 
-### Funcionalidades: 
+## Funcionalidades: 
 - Sistema de login/registro que permite o usuário acessar as funcionalides do projeto, o usuário também pode se deslogar
 - Criar tarefas informando o nome da tarefa e seu nível de urgência
 - Por padrão, a urgência da tarefa será baixa, podendo ser alterada para média e alta
@@ -18,7 +18,7 @@ Projeto que permite o usuário administrar a sua lista de tarefas, permitindo-o 
 - xss-clean: "sanitize the user input"
 - express-mongo-sanitize: protege contra injeções maliciosas direcionadas ao MongoDB
 
-### Live: https://todolist-mern.onrender.com
+## Live: https://todolist-mern.onrender.com
 
 ![todolist-mern onrender com_landing(Nest Hub Max)](https://user-images.githubusercontent.com/103163622/211131267-bc7cf10f-ea00-4c00-83c9-6d97d6d99554.png)
 ![localhost_3000_register(Nest Hub Max) (1)](https://user-images.githubusercontent.com/103163622/211131553-c011dd7f-69dc-408e-adc3-951a3d2c6550.png)
@@ -27,10 +27,11 @@ Projeto que permite o usuário administrar a sua lista de tarefas, permitindo-o 
 
 - Funcionalidades a serem adicionadas: Marcar a tarefa como completa e ordenar as tarefas com base na urgência e data de criação
 
-INSTALLATION
-install dependencies with 'npm install' command
-create .env and provide correct values: MONGO_URI=<YOUR_MONGODB_URL> JWT_SECRET=<YOUR_JWTSECRET> JWT_LIFETIME=<e.g. "1d">
-
-start the back-end and front-end with 'npm start'
-
-you should see "Server is listening ..." text
+## INSTALLATION
+- install dependencies with `npm install` command
+- create .env and provide correct values: 
+  - MONGO_URI=<YOUR_MONGODB_URL> 
+  - JWT_SECRET=<YOUR_JWTSECRET> 
+  - JWT_LIFETIME=<e.g. "1d">
+- start the back-end and front-end with 'npm start'
+- you should see "Server is listening ..." text
